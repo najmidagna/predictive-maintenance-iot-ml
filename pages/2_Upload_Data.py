@@ -1,5 +1,11 @@
 import streamlit as st
 import pandas as pd
+# --------------------------------------------------------
+# ACCESS PROTECTION
+# --------------------------------------------------------
+if "logged_in" not in st.session_state or not st.session_state.logged_in:
+    st.error("❌ Access denied. Please log in first.")
+    st.stop()
 
 st.title("📁 Upload IoT Sensor Data")
 st.write("Upload a CSV file containing machine sensor readings for predictive health analysis.")

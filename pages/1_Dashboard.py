@@ -3,6 +3,13 @@ import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
 
+# --------------------------------------------------------
+# ACCESS PROTECTION
+# --------------------------------------------------------
+if "logged_in" not in st.session_state or not st.session_state.logged_in:
+    st.error("❌ Access denied. Please log in first.")
+    st.stop()
+
 st.title("📊 Equipment Health Dashboard")
 
 # ----------------------------------------------------------

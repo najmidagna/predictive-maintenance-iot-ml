@@ -2,5 +2,6 @@
     "admin": {
         "password": "1234",
         "role": "admin"
-    }
+    },
+    "user": "1234"
 }
