@@ -13,7 +13,7 @@ st.title("📄 Download Report")
 # --------------------------------------------------------
 # CHECK IF PREDICTION RESULTS EXIST
 # --------------------------------------------------------
-if "df_result" not in st.session_state:
+if "df_result" not in st.session_state or st.session_state.df_result is None:
     st.warning("⚠ No prediction data found.")
     st.info("Please run prediction first in the 'Predict Health' page.")
     st.stop()
