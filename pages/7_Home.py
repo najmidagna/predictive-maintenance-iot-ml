@@ -1,5 +1,6 @@
 import streamlit as st
 import pandas as pd
+import datetime
 
 # --------------------------------------------------------
 # ACCESS CONTROL
@@ -7,16 +8,89 @@ import pandas as pd
 if "logged_in" not in st.session_state or not st.session_state.logged_in:
     st.error("❌ Access denied. Please log in first.")
     st.stop()
-
 # --------------------------------------------------------
-# HOME PAGE TITLE
+# CUSTOM DARK MODE + GRADIENT STYLING
 # --------------------------------------------------------
-st.title("🏠 Home Page")
-st.write(f"👋 Welcome, **{st.session_state.username}**!")
-st.write(f"**Role:** {st.session_state.role.capitalize()}")
+st.markdown("""
+<style>
+body {
+    background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
+    color: white !important;
+}
+.main-title {
+    font-size: 36px;
+    font-weight: 800;
+    color: #4db8ff;
+    text-shadow: 2px 2px 4px #000;
+}
+.welcome-box {
+    background: rgba(30, 144, 255, 0.1);
+    border-left: 6px solid #4db8ff;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    backdrop-filter: blur(3px);
+}
+.feature-card {
+    background-color: rgba(255,255,255,0.05);
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    transition: 0.2s ease;
+}
+.feature-card:hover {
+    background-color: rgba(255,255,255,0.15);
+    box-shadow: 0 0 12px rgba(0, 180, 255, 0.4);
+    transform: translateY(-4px);
+}
+.footer {
+    color:#bbb;
+    font-size: 13px;
+    text-align: center;
+    margin-top: 3rem;
+}
+/* Target all Streamlit buttons */
+div.stButton > button {
+    background-color: #f0f2f6;
+    color: black;
+    border-radius: 10px;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease;
+}
 
+/* Hover effect */
+div.stButton > button:hover {
+    background-color: #4CAF50;
+    color: white;
+    border: 1px solid #4CAF50;
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Optional: Active click effect */
+div.stButton > button:active {
+    transform: scale(0.98);
+}
+</style>
+""", unsafe_allow_html=True)
+# --------------------------------------------------------
+# HEADER/WELCOME SECTION
+# --------------------------------------------------------
+st.markdown('<div class="main-title">🏠 Home Page</div>', unsafe_allow_html=True)
+st.markdown(
+    f"<div class='welcome-box'>👋 Welcome, <b>{st.session_state.username}</b> "
+    f"({st.session_state.role.capitalize()})<br>"
+    f"Date: {datetime.datetime.now().strftime('%d %B %Y • %H:%M')}</div>",
+    unsafe_allow_html=True
+)
+st.write(
+    "This Predictive Maintenance System monitors oil and gas pumps using IoT "
+    "sensor data and machine‑learning algorithms to predict equipment failures "
+    "before they occur, minimizing downtime and increasing safety."
+)
 st.markdown("---")
-
 # --------------------------------------------------------
 # QUICK NAVIGATION SECTION
 # --------------------------------------------------------

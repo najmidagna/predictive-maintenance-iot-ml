@@ -131,13 +131,21 @@ if st.button("🔍 Run Prediction"):
 
     avg_prob = float(np.mean(prob)) * 100
 
+# Dynamic color
+    if avg_prob < 40:
+        bar_color = "#83e186"
+    elif avg_prob < 80:
+        bar_color = "#f9e092"
+    else:
+        bar_color = "#f9a092"
+
     fig = go.Figure(go.Indicator(
         mode="gauge+number",
         value=avg_prob,
         title={'text': "Failure Risk (%)"},
         gauge={
             'axis': {'range': [0, 100]},
-            'bar': {'color': "darkred"},
+            'bar': {'color': bar_color},
             'steps': [
                 {'range': [0, 40], 'color': "green"},
                 {'range': [40, 80], 'color': "orange"},
