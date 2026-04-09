@@ -2,7 +2,17 @@ import streamlit as st
 import joblib
 import numpy as np
 import os
+from sidebar import show_sidebar
+from footer import show_footer
 
+
+st.set_page_config(
+    page_title="Predictive Maintenance System",
+    page_icon="🛠️",
+    layout="wide"
+)
+
+show_sidebar()
 # -----------------------------------------------------
 # ACCESS CONTROL
 # -----------------------------------------------------
@@ -41,15 +51,46 @@ st.subheader("📥 Enter Sensor Values Manually")
 col1, col2 = st.columns(2)
 
 with col1:
-    air_temp = st.number_input("Air Temperature [K]", min_value=250.0, max_value=500.0, value=300.0)
-    rpm = st.number_input("Rotational Speed [rpm]", min_value=0, max_value=5000, value=1500)
+    air_temp = st.number_input(
+        "Air Temperature [K]",
+        min_value=250.0,
+        max_value=500.0,
+        value=300.0,
+        step=10.0   # ✅ change step
+    )
+
+    rpm = st.number_input(
+        "Rotational Speed [rpm]",
+        min_value=0,
+        max_value=5000,
+        value=1500,
+        step=100    # ✅ better for rpm
+    )
 
 with col2:
-    proc_temp = st.number_input("Process Temperature [K]", min_value=250.0, max_value=800.0, value=350.0)
-    torque = st.number_input("Torque [Nm]", min_value=0.0, max_value=200.0, value=30.0)
+    proc_temp = st.number_input(
+        "Process Temperature [K]",
+        min_value=250.0,
+        max_value=800.0,
+        value=350.0,
+        step=10.0   # ✅ change step
+    )
 
-tool_wear = st.number_input("Tool Wear [min]", min_value=0, max_value=500, value=10)
+    torque = st.number_input(
+        "Torque [Nm]",
+        min_value=0.0,
+        max_value=200.0,
+        value=30.0,
+        step=10.0   # ✅ change step
+    )
 
+tool_wear = st.number_input(
+    "Tool Wear [min]",
+    min_value=0,
+    max_value=500,
+    value=10,
+    step=10   # ✅ change step
+)
 # -----------------------------------------------------
 # RUN PREDICTION
 # -----------------------------------------------------
@@ -79,3 +120,5 @@ if st.button("🔍 Check Health Now"):
     st.subheader("📊 Instant Prediction Result")
     st.write(f"### Failure Probability: **{prob:.2f}**")
     st.write(f"### Health Status: {status}")
+
+show_footer()

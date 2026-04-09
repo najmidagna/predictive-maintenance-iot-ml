@@ -1,5 +1,16 @@
 import streamlit as st
 import pandas as pd
+from sidebar import show_sidebar
+from footer import show_footer
+
+
+st.set_page_config(
+    page_title="Predictive Maintenance System",
+    page_icon="🛠️",
+    layout="wide"
+)
+
+show_sidebar()
 # --------------------------------------------------------
 # ACCESS PROTECTION
 # --------------------------------------------------------
@@ -74,3 +85,5 @@ if uploaded_file:
 
 else:
     st.info("📌 Please upload a CSV file to continue.")
+
+show_footer()

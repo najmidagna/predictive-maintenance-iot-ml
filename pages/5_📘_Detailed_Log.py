@@ -1,6 +1,16 @@
 import streamlit as st
 import pandas as pd
+from sidebar import show_sidebar
+from footer import show_footer
 
+
+st.set_page_config(
+    page_title="Predictive Maintenance System",
+    page_icon="🛠️",
+    layout="wide"
+)
+
+show_sidebar()
 # --------------------------------------------------------
 # ACCESS PROTECTION
 # --------------------------------------------------------
@@ -69,3 +79,5 @@ st.download_button(
     file_name="equipment_log.csv",
     mime="text/csv"
 )
+
+show_footer()

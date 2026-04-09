@@ -4,7 +4,17 @@ import joblib
 import os
 import numpy as np
 import plotly.graph_objects as go
+from sidebar import show_sidebar
+from footer import show_footer
 
+
+st.set_page_config(
+    page_title="Predictive Maintenance System",
+    page_icon="🛠️",
+    layout="wide"
+)
+
+show_sidebar()
 # --------------------------------------------------------
 # ACCESS PROTECTION
 # --------------------------------------------------------
@@ -172,3 +182,5 @@ if st.button("🔍 Run Prediction"):
         st.error("⚠️ ALERT: Potential pump failure detected!")
     else:
         st.success("✔ Pump operating normally.")
+
+show_footer()

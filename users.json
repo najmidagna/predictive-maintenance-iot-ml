@@ -3,5 +3,12 @@
         "password": "1234",
         "role": "admin"
     },
-    "user": "1234"
+    "user": {
+        "password": "1234",
+        "role": "user"
+    },
+    "user1": {
+        "password": "1234",
+        "role": "user"
+    }
 }

@@ -1,5 +1,8 @@
 import streamlit as st
 from login import login_user
+from footer import show_footer
+
+
 
 st.set_page_config(page_title="Predictive Maintenance System", layout="wide")
 
@@ -30,7 +33,7 @@ def login_page():
             st.session_state.logged_in = True
             st.session_state.role = role
             st.session_state.username = username
-            st.switch_page("pages/7_Home.py")
+            st.switch_page("pages/0_🏠_Home.py")
         else:
             st.error("❌ Invalid username or password")
 
@@ -41,4 +44,6 @@ def login_page():
 if not st.session_state.logged_in:
     login_page()
 else:
-    st.switch_page("pages/7_Home.py")
+    st.switch_page("pages/0_🏠_Home.py")
+
+show_footer()

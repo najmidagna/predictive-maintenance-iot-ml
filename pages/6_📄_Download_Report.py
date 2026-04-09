@@ -1,6 +1,17 @@
 import streamlit as st
 import pandas as pd
+from sidebar import show_sidebar
+from footer import show_footer
 
+
+
+st.set_page_config(
+    page_title="Predictive Maintenance System",
+    page_icon="🛠️",
+    layout="wide"
+)
+
+show_sidebar()
 # --------------------------------------------------------
 # ACCESS PROTECTION
 # --------------------------------------------------------
@@ -54,3 +65,16 @@ col1.metric("Total Rows", total)
 col2.metric("Normal", normal)
 col3.metric("Warning", warning)
 col4.metric("Critical", critical)
+
+# --------------------------------------------------------
+# FOOTER / LOGOUT BUTTON
+# --------------------------------------------------------
+if st.sidebar.button("Log Out"):
+    st.session_state.logged_in = False
+    st.session_state.role = None
+    st.session_state.username = None
+    st.session_state.df_result = None
+    st.session_state.logs = None
+    st.rerun()
+
+show_footer()

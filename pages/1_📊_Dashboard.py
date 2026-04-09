@@ -2,7 +2,17 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
+from sidebar import show_sidebar
+from footer import show_footer
 
+
+st.set_page_config(
+    page_title="Predictive Maintenance System",
+    page_icon="🛠️",
+    layout="wide"
+)
+
+show_sidebar()
 # --------------------------------------------------------
 # ACCESS PROTECTION
 # --------------------------------------------------------
@@ -109,3 +119,5 @@ if labels_available:
 # ----------------------------------------------------------
 st.subheader("📄 Raw Data")
 st.dataframe(df)
+
+show_footer()

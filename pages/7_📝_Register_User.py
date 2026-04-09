@@ -1,5 +1,6 @@
 import streamlit as st
 from login import load_users, save_users
+from footer import show_footer
 
 # -------------------------------
 # ADMIN ACCESS CHECK
@@ -35,3 +36,16 @@ if st.button("Register User"):
 
         st.success(f"✅ User '{username}' registered successfully!")
         st.info("You can now log in with this new account.")
+
+# --------------------------------------------------------
+# FOOTER / LOGOUT BUTTON
+# --------------------------------------------------------
+if st.sidebar.button("Log Out"):
+    st.session_state.logged_in = False
+    st.session_state.role = None
+    st.session_state.username = None
+    st.session_state.df_result = None
+    st.session_state.logs = None
+    st.rerun()
+
+show_footer()

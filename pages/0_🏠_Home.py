@@ -1,6 +1,9 @@
 import streamlit as st
 import pandas as pd
 import datetime
+from sidebar import show_sidebar
+from footer import show_footer
+
 
 # --------------------------------------------------------
 # ACCESS CONTROL
@@ -17,19 +20,36 @@ body {
     background: linear-gradient(135deg, #0f0f0f, #1e1e1e);
     color: white !important;
 }
+
+            
 .main-title {
-    font-size: 36px;
-    font-weight: 800;
-    color: #4db8ff;
-    text-shadow: 2px 2px 4px #000;
+    font-size: 60px;
+    font-weight: bold;
+    color: "white";
+    margin-bottom: 10px;
+    text-shadow: 0px 0px 8px rgba(76, 175, 80, 0.6);
 }
+
+/* Adaptive box */
 .welcome-box {
-    background: rgba(30, 144, 255, 0.1);
-    border-left: 6px solid #4db8ff;
-    padding: 1rem;
-    border-radius: 6px;
-    margin-bottom: 1rem;
-    backdrop-filter: blur(3px);
+    padding: 15px;
+    border-radius: 10px;
+    border-left: 5px solid #4CAF50;
+    margin-bottom: 15px;
+    backdrop-filter: blur(10px);
+
+    background-color: rgba(255, 255, 255, 0.05); /* works for dark */
+}
+
+/* Adaptive text */
+.system-desc {
+    font-size: 15px;
+    opacity: 0.9;
+}
+
+/* Optional: make everything smoother */
+div[data-testid="stMarkdownContainer"] {
+    color: inherit;
 }
 .feature-card {
     background-color: rgba(255,255,255,0.05);
@@ -73,23 +93,45 @@ div.stButton > button:hover {
 div.stButton > button:active {
     transform: scale(0.98);
 }
+
 </style>
 """, unsafe_allow_html=True)
+
+st.set_page_config(
+    page_title="Predictive Maintenance System",
+    page_icon="🛠️",
+    layout="wide"
+)
+
+show_sidebar() 
+
 # --------------------------------------------------------
 # HEADER/WELCOME SECTION
 # --------------------------------------------------------
-st.markdown('<div class="main-title">🏠 Home Page</div>', unsafe_allow_html=True)
+st.markdown('<div class="main-title">🛠️ Predictive Maintenance System</div>', unsafe_allow_html=True)
+
 st.markdown(
-    f"<div class='welcome-box'>👋 Welcome, <b>{st.session_state.username}</b> "
-    f"({st.session_state.role.capitalize()})<br>"
-    f"Date: {datetime.datetime.now().strftime('%d %B %Y • %H:%M')}</div>",
+    f"""
+    <div class='welcome-box'>
+        👋 Welcome, <b>{st.session_state.username}</b> 
+        ({st.session_state.role.capitalize()})<br>
+        📅 {datetime.datetime.now().strftime('%d %B %Y • %H:%M')}
+    </div>
+    """,
     unsafe_allow_html=True
 )
-st.write(
-    "This Predictive Maintenance System monitors oil and gas pumps using IoT "
-    "sensor data and machine‑learning algorithms to predict equipment failures "
-    "before they occur, minimizing downtime and increasing safety."
+
+st.markdown(
+    """
+    <div class='system-desc'>
+    This system monitors oil and gas equipment using IoT sensor data and 
+    machine learning models to predict potential failures early, reducing 
+    downtime and improving operational safety.
+    </div>
+    """,
+    unsafe_allow_html=True
 )
+
 st.markdown("---")
 # --------------------------------------------------------
 # QUICK NAVIGATION SECTION
@@ -188,3 +230,5 @@ if st.sidebar.button("Log Out"):
     st.session_state.df_result = None
     st.session_state.logs = None
     st.rerun()
+
+show_footer() 
