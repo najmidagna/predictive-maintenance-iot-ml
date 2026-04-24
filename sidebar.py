@@ -50,7 +50,7 @@ def show_sidebar():
         st.markdown('<div class="sidebar-subtitle">Oil & Gas Equipment Monitoring</div>', unsafe_allow_html=True)
 
         username = st.session_state.get("username", "Guest")
-        role = st.session_state.get("role", "user").capitalize()
+        role = (st.session_state.get("role") or "user").capitalize()
         current_time = datetime.datetime.now().strftime("%d %b %Y • %H:%M")
 
         st.markdown(f"""

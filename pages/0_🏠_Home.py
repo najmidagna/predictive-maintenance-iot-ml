@@ -4,7 +4,7 @@ import datetime
 from sidebar import show_sidebar
 from footer import show_footer
 
-
+show_sidebar() 
 # --------------------------------------------------------
 # ACCESS CONTROL
 # --------------------------------------------------------
@@ -103,7 +103,7 @@ st.set_page_config(
     layout="wide"
 )
 
-show_sidebar() 
+
 
 # --------------------------------------------------------
 # HEADER/WELCOME SECTION
@@ -142,24 +142,24 @@ col1, col2, col3 = st.columns(3)
 
 with col1:
     if st.button("📁 Upload Sensor Data"):
-        st.switch_page("pages/2_Upload_Data.py")
+        st.switch_page("pages/2_📁_Upload_Data.py")
 
     if st.button("⚡ Instant Health Check"):
-        st.switch_page("pages/6_Instant_Health_Check.py")
+        st.switch_page("pages/4_⚡_Instant_Health_Check.py")
 
 with col2:
     if st.button("🔍 Predict Health"):
-        st.switch_page("pages/3_Predict_Health.py")
+        st.switch_page("pages/3_🔍_Predict_Health.py")
 
     if st.button("📘 Detailed Log"):
-        st.switch_page("pages/4_Detailed_Log.py")
+        st.switch_page("pages/5_📘_Detailed_Log.py")
 
 with col3:
     if st.button("📊 Dashboard"):
-        st.switch_page("pages/1_Dashboard.py")
+        st.switch_page("pages/1_📊_Dashboard.py")
 
     if st.button("⬇ Download Report"):
-        st.switch_page("pages/5_Download_Report.py")
+        st.switch_page("pages/6_📄_Download_Report.py")
 
 st.markdown("---")
 
