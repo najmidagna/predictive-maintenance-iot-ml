@@ -64,29 +64,36 @@ Generate and download:
 • Filtered logs  
 • Summary report  
 
-🗂️ Project Structure
+## 📁 Project Structure
 
-``
+```
 FYP2/
-│── Login_Page.py               # Main entry (login + redirect)
-│── login.py                    # Auth + user handling
-│── users.json                  # Stored registered users
-│── model/
-│     ├── trainedmodelxgb.pkl
-│     ├── scaler2.pkl
-│── pages/
-│     ├── 0Home.py
-│     ├── 1Dashboard.py
-│     ├── 2UploadData.py
-│     ├── 3PredictHealth.py
-│     ├── 4DetailedLog.py
-│     ├── 5DownloadReport.py
-│     ├── 6InstantHealthCheck.py
-│── assets/
-│     └── (optional images/logos)
-│── requirements.txt
-│── README.md
-`
+├── __pycache__/
+│   ├── footer.cpython-312.pyc
+│   ├── login.cpython-312.pyc
+│   └── sidebar.cpython-312.pyc
+├── model/
+│   ├── scaler2.pkl
+│   └── trained_model_xgb.pkl
+├── pages/
+│   ├── 0_Home.py
+│   ├── 1_Dashboard.py
+│   ├── 2_Upload_Data.py
+│   ├── 3_Predict_Health.py
+│   ├── 4_Instant_Health_Check.py
+│   ├── 5_Detailed_Log.py
+│   ├── 6_Download_Report.py
+│   └── 7_Register_User.py
+├── Test data/
+├── Data_Preprocessing_and_Model_Training.py
+├── footer.py
+├── Login_Page.py                # Main entry (login + redirect)
+├── login.py
+├── sidebar.py
+├── users.json
+├── requirements.txt
+└── README.md
+```
 
 🧠 Machine Learning Model
 Algorithm:  
