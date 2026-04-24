@@ -68,26 +68,24 @@ Generate and download:
 
 ```
 FYP2/
-├── __pycache__/
-│   ├── footer.cpython-312.pyc
-│   ├── login.cpython-312.pyc
-│   └── sidebar.cpython-312.pyc
 ├── model/
 │   ├── scaler2.pkl
 │   └── trained_model_xgb.pkl
 ├── pages/
-│   ├── 0_Home.py
-│   ├── 1_Dashboard.py
-│   ├── 2_Upload_Data.py
-│   ├── 3_Predict_Health.py
-│   ├── 4_Instant_Health_Check.py
-│   ├── 5_Detailed_Log.py
-│   ├── 6_Download_Report.py
-│   └── 7_Register_User.py
-├── Test data/
+│   ├── 0_🏠_Home.py
+│   ├── 1_📊_Dashboard.py
+│   ├── 2_📁_Upload_Data.py
+│   ├── 3_🔍_Predict_Health.py
+│   ├── 4_⚡_Instant_Health_Check.py
+│   ├── 5_📄_Detailed_Log.py
+│   ├── 6_📥_Download_Report.py
+│   └── 7_📝_Register_User.py
+├── Test_data/
+│   ├── IoT Data.csv
+│   └── test_data.csv
 ├── Data_Preprocessing_and_Model_Training.py
 ├── footer.py
-├── Login_Page.py                # Main entry (login + redirect)
+├── Login_Page.py
 ├── login.py
 ├── sidebar.py
 ├── users.json
